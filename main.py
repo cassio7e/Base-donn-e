@@ -37,32 +37,6 @@
 
 
 
-##########################################################################
-#a revoir 
-
-#reinitialiser la collection (remise a l'origine)
- #   reinitialiser la collection existante
-  #  inserrer une copie des doc de depart donc des ennemies et des heros
-
-#reinitialiser la base pour mettre les combattants de depart 
- #   remettre les heros 
-  #  remettre les ennemis 
-
-#charger pour renvoyer la liste des heros dispo
- #  lire la collection heros
-  #  les mettre dans une liste
-
-#charger pour renvoyer la liste des ennemis dispo
- #   lire la collection ennemis
-  #  les mettre dans une liste
-
-#charger le palmares
- #  lire tous les scores
-  #  les tries du plus grand au plus petit nombre de manche
-
-#enregistrer la partie
- #  creer le document du score
-  # inserer dans la collection palmares
 
 
 ####################################################################
@@ -82,8 +56,6 @@
 #    lire la collection ennemis 
 #    les mettre dans une liste 
 
-#enregistrer la sauvegarde 
-#    supprimer l'ancienne sauvegarde du joueur 
 
 #charger le palmares 
 #    lire tous les scores
@@ -95,7 +67,7 @@
 
 
 ####################################################################
-#Regle atomique 
+#interface UX
 
 
 # verifier si un combatant est en vie:
