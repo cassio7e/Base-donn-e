@@ -24,36 +24,6 @@
 #verifier que le choix est comprise entre les option min et max  
 #dire si l'option dans le menu existe  
 
-# afficher les scores
-#     afficher message si vide
-#     sinon afficher son score avec le rang 
-#     montrer le meilleur resultat
-
-# afficher choix invalide
-#     afficher le message erreur 
-
-# afficher quitter 
-#     afficher mess de sorti 
 
 
 
-
-
-####################################################################
-#base de doneee
-
-
-
-
-
-
-####################################################################
-#interface UX
-
-
-
-
-
-
-
-##############################
