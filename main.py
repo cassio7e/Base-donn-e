@@ -43,10 +43,7 @@
 #base de doneee
 
 
-# reinitialiser la base pour mettre les combattants de depart
-#     vider les collections existantes
-#     inserer une copie des documents HERO dans la collection heros
-#     inserer une copie des documents ENNEMIE dans la collection ennemis
+
 
 #charger pour renvoyer la liste des heros dispo  
 #    lire la collection heros 
@@ -70,11 +67,11 @@
 #interface UX
 
 
-# verifier si un combatant est en vie:
- #  si hp du combattant est > 0 
-  #  renvoyer vrai
- # sinon
-  #  renvoyer faux
+# verifier si le choix est valide ()
+#   si la saisie n'est pas compee uniquement de hp du combattant est > 0 
+#   renvoyer vrai
+#  sinon
+#   renvoyer faux
 
 #verification si l'equipe est en vie  
 #   pour chaque heros dans equipe:
