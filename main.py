@@ -95,6 +95,8 @@
 
 
 ####################################################################
+#Regle atomique 
+
 
 # verifier si un combatant est en vie:
  #  si hp du combattant est > 0 
@@ -112,7 +114,7 @@
 #   pour chaque heros dans equipe :
 #     si verifier si un combattant est en vie est Vrai:
 #         renvoyer heros
-#   renvoyer REIN  
+#   renvoyer RIEN  
 
 #calculer les degats subis
 #   degats = attaquant  - defenseur 
@@ -122,7 +124,10 @@
 
 #appliquer les degats
 #   degats = calculer les degats subis 
-#   defenseur
+#   defenseur["hp"] = defenseur["hp"] - degats
+#   si defenseur["hp"] < 0 : 
+#     defenseur["hp"] = 0
+#   afficher "[attaquant.name] inflige [degats] degats a [defenseur.name]"
 
 
 
@@ -144,8 +149,9 @@ ENNEMIE = [
 ]
 
 ##############################
-# generer un adversaire pour la vague (catalogue_ennemis)
-#     tirer un ennemi au hasard dans catalogue_ennemis
+# generer un adversaire pour la vague (catalogue ennemis)
+#     choisir un index aleatoire dans catalogue enemis 
+#     tennemi modele = catalogue ennemis[index]
 #     creer une copie neuve de cet ennemi avec ses PV max
 #     renvoyer la copie neuve
 
