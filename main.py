@@ -35,6 +35,20 @@
 #      renvoyé jusqua fontionnement 
 
 ##########################################################################
+#reinitialiser la collection (remise a l'origine)
+ #   reinitialiser la collection existante
+  #  inserrer une copie des doc de depart donc des ennemies et des heros
+
+#reinitialiser la base pour mettre les combattants de depart 
+ #   remettre les heros 
+  #  remettre les ennemis 
+
+####################################################################
+
+
+
+
+
 
 
 HERO = [
