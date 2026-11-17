@@ -4,62 +4,96 @@
 # demander le pseudo
 #   demander et retourner le pseudo
 #
-#  composer une equipe (heros_disponibles, taille_equipe)
-#     equipe = liste vide
-#     copie_catalogue = copie de heros_disponibles
-#     
-#     tant que taille de equipe < taille_equipe ET copie_catalogue n'est pas vide :
-#         afficher "Choisissez le membre [taille de equipe + 1] de votre equipe :"
-#         pour index, heros dans copie_catalogue :
-#             afficher un combattant(heros, index + 1)
-#             
-#         demander saisie
-#         si verifier si le choix est valide(saisie, 1, taille de copie_catalogue) :
-#             index_choisi = entier(saisie) - 1
-#             heros_selectionne = copie du heros a l'index_choisi
-#             ajouter heros_selectionne dans equipe
-#             retirer l'element a index_choisi de copie_catalogue
-#             afficher "[heros_selectionne.name] rejoint l'equipe !"
-#         sinon :
-#             afficher message erreur
-#             
-#     renvoyer equipe
-
-
-# verifier si le choix est valide ()
-#   si la saisie n'est pas compee uniquement de hp du combattant est > 0 
-#   renvoyer vrai
-#  sinon
-#   renvoyer faux
-
-#verification si l'equipe est en vie  
-#   pour chaque heros dans equipe:
-#     si verifier si un combattant est en vie Vrai:
-#       renvoyer Vrai
-#   renvoyer Faux 
-
-
-
-#calculer les degats subis
-#   degats = attaquant  - defenseur 
-#   si degats <= 0 :
-#      degats = 1
-#   renvoyer degats 
-
-#appliquer les degats
-#   degats = calculer les degats subis 
-#   defenseur["hp"] = defenseur["hp"] - degats
-#   si defenseur["hp"] < 0 : 
-#     defenseur["hp"] = 0
-#   afficher "[attaquant.name] inflige [degats] degats a [defenseur.name]"
-
-
-
-# 
-#  generer un adversaire pour la vague (catalogue ennemis)
-#     choisir un index aleatoire dans catalogue enemis 
-#     tennemi modele = catalogue ennemis[index]
-#     creer une copie neuve de cet ennemi avec ses PV max
-#     renvoyer la copie neuve
-
+# demander le choix personnage (choisir un personnage sur la liste)
+#   afficher chaque personnage numéroté 
+#   demander de choisir un numero valide 
+#   pendant que c'est Vrai
+#       retourner le choix dans l'index choisi
+#   si pas is digit 
+#   
 #
+# creation de l'equipe (personnage_disponibles)
+#   initialiser une equipe vide
+#   copier la liste des personnages disponibles
+#   repeter jusqu'a avoir 3 personnages
+#       demander le choix personnage
+#       creer Joueur et ajouter le perso
+#        
+#     
+# choisir un monstre disponible 
+#   choisir un monstre au hasard
+#   creer un adversaire 
+#    
+#
+# Pour faire attaquer tous les personnages vivants
+#   evenements vide 
+#    pour chaque joueurs vivant dans le'equipe 
+#       si le joueur est en vie et le monstre est en vie
+#           le joueur attaque le monstre 
+#       si le monstre n'est plus en vie 
+#           on a tuer le monstre 
+#           break
+#       
+#
+# choisir un personnage vivant en cible aléatoire 
+#    lister les vivants
+#    choisir au hasard 
+#
+#
+# attaque du monstre 
+#   choisir un personnage vivant 
+#   le monstre attaque 
+#   mettre un message si le perso est mort 
+#
+# equipe morte 
+#   verifier si au moins un des Personnage vivant est vivant 
+#   renvoie true si morte (l'equipe)
+#
+# afficher l'evenement
+#   afficher le message recu
+#   affiche un message de combat
+#
+# afficher tous les messages d'un tour
+#   afficher chaque message
+# 
+# afficher l'etat de l'equipe
+#   affichez un texte de presentation 
+#   affichez chaque personnage en vie 
+# 
+# afficher le score final 
+#   afficher le pseudo et le nombre de manches a gagnees
+# 
+# combattre le monstre 
+#   tant que le monstre et equipe en vie 
+#       equipe attaque puis monnstre attque 
+#   afficher l'évenement
+#
+# 
+# boucle du jeux 
+#   score de base =0
+#   tant que equipe est en vie 
+#       choisir le monstre
+#       afficher texte avec le nom du monstre
+#       combattre le monstre 
+#   si le monstre est mort 
+#       on augmente le score 
+#
+#
+# deroulement partie COMPLETE
+#   demande du pseudo
+#   charger les personnages
+#   creer une equipe 
+#   lancer la boucle de jeu
+#   enregistrer le score et afficher le resultat 
+#
+#
+# afficher le score des meilleurs joueurs
+#   texte SCORES
+#   Si pas de score alors message vide 
+#   sinon afficher chaque score 
+#
+#
+
+
+
+
