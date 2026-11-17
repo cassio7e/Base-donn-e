@@ -45,22 +45,6 @@
 
 
 
-#charger pour renvoyer la liste des heros dispo  
-#    lire la collection heros 
-#   les mettre dans une liste 
-#
-#charger pour renvoyer la liste des ennemis dispo 
-#    lire la collection ennemis 
-#    les mettre dans une liste 
-
-
-#charger le palmares 
-#    lire tous les scores
-#    les trier du plus grand au plus petit nomre de manche 
-
-#enregistrer la partie 
-#    creer le document du score 
-#    inserer dans la collection palmares 
 
 
 ####################################################################
