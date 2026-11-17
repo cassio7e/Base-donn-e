@@ -1,13 +1,26 @@
 # debut du jeux (principal)
-#     afficher le Menu,,
-#     si choix est 1 alors lancer le jeux
+#     afficher le Menu,
+#        afficher les 3 options numerotés 
+#         Jouer, Score, Quitter
+#     demander choix menu 
+#        demander le choix du user 
+#        recommencer tant une pas validé
+#        renvoyé jusqua fontionnement 
+#     Recuperer le choix valide 
+#     si choix valide 
+#       retourner le choix valide 
+#     Si le choix est invalide
+#       afficher le message erreur 
+#     SI 1 alors lancer le jeux
 #     sinon 2 alors le afficher les score 
 #     ou 3 quitter 
 
-
-# afficher le menu
-#     afficher les 3 options 
-#         Jouer, Score, Quitter
+#choix valide 
+#si le choix n'est pas isdidgit()
+#   return false 
+#convertir le choix en entier 
+#verifier que le choix est comprise entre les option min et max  
+#dire si l'option dans le menu existe  
 
 # afficher les scores
 #     afficher message si vide
@@ -16,23 +29,10 @@
 
 # afficher choix invalide
 #     afficher le message erreur 
-#     prevenir que l'option n,'existe pas 
 
 # afficher quitter 
 #     afficher mess de sorti 
 
-# demander choix menu 
-#     demanderle choix du user 
-#     recuperer le choix 
-
-# choix valide 
-#     verifier que le choix est 1, 2 et 3 
-#     dire si l'option dans le menu existe 
-
-# obtenir le choix du menu 
-#     demander un choix 
-#     recommencer tant une pas validé
-#      renvoyé jusqua fontionnement 
 
 ##########################################################################
 #reinitialiser la collection (remise a l'origine)
