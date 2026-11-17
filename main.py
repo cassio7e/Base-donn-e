@@ -38,6 +38,7 @@
 
 
 ##########################################################################
+#a revoir 
 
 #reinitialiser la collection (remise a l'origine)
  #   reinitialiser la collection existante
@@ -65,6 +66,13 @@
 
 
 ####################################################################
+#base de doneee
+
+
+# reinitialiser la base pour mettre les combattants de depart
+#     vider les collections existantes
+#     inserer une copie des documents HERO dans la collection heros
+#     inserer une copie des documents ENNEMIE dans la collection ennemis
 
 #charger pour renvoyer la liste des heros dispo  
 #    lire la collection heros 
@@ -94,22 +102,27 @@
  # sinon
   #  renvoyer faux
 
-#calculer_les_degats_subis 
- #  degats = attaque de l'attaquant - defense du defenseur
- #  si degats<=0
-  #  degats =1
-# renvoyer degats
+#verification si l'equipe est en vie  
+#   pour chaque heros dans equipe:
+#     si verifier si un combattant est en vie Vrai:
+#       renvoyer Vrai
+#   renvoyer Faux 
+
+#obtenir le heros actif (equipe)
+#   pour chaque heros dans equipe :
+#     si verifier si un combattant est en vie est Vrai:
+#         renvoyer heros
+#   renvoyer REIN  
+
+#calculer les degats subis
+#   degats = attaquant  - defenseur 
+#   si degats <= 0 :
+#      degats = 1
+#   renvoyer degats 
 
 #appliquer les degats
- # degats = calculer_les_degats_subis(attaquant, defenseur)
- # defenseur["hp"] = defenseur["hp"] - degats
- # si defenseur["hp"] < 0
-  #  defenseur["hp"] = 0
- # afficher "l'attaquant a infligé[degats] degats à defenseur!"
-
-#afficher etat du combat
- #  afficher "Heros": Nom (hp restants)
- #  afficher " Ennemi": Nom (hp restants)
+#   degats = calculer les degats subis 
+#   defenseur
 
 
 
@@ -131,36 +144,30 @@ ENNEMIE = [
 ]
 
 ##############################
-#afficher entree joueur
-#    afficher "le jeu va bientit commencer"
+# generer un adversaire pour la vague (catalogue_ennemis)
+#     tirer un ennemi au hasard dans catalogue_ennemis
+#     creer une copie neuve de cet ennemi avec ses PV max
+#     renvoyer la copie neuve
 
-#obtenir un pseudo()
-#   demander le pseudo 
-#    redemander tant qu'il est vide 
-#    renvoyer le pseudo du joueur 
+# composer une equipe (heros_disponibles, taille_equipe)
+#     equipe = liste vide
+#     copie_catalogue = copie de heros_disponibles
+#     
+#     tant que taille de equipe < taille_equipe ET copie_catalogue n'est pas vide :
+#         afficher "Choisissez le membre [taille de equipe + 1] de votre equipe :"
+#         pour index, heros dans copie_catalogue :
+#             afficher un combattant(heros, index + 1)
+#             
+#         demander saisie
+#         si verifier si le choix est valide(saisie, 1, taille de copie_catalogue) :
+#             index_choisi = entier(saisie) - 1
+#             heros_selectionne = copie du heros a l'index_choisi
+#             ajouter heros_selectionne dans equipe
+#             retirer l'element a index_choisi de copie_catalogue
+#             afficher "[heros_selectionne.name] rejoint l'equipe !"
+#         sinon :
+#             afficher message erreur
+#             
+#     renvoyer equipe
 
-#afficher liste heros que le joueur peu choisir 
-#    parcourir les heros 
-#    afficher le numéro 
-
-#demander numero des heros ce qui renvoie le numéro choisi par le joueur 
-#    demander un numéro
-#    recommencé tant que le numero n'est pas valide 
-
-
-#preparer un nouv joueur pour une nouvelle partie 
-#    charger et afficher les heros 
-#    demander le choix du joueur 
-
-#prendre des ennemis qui va etre renvoyé a la manche 
-#    choisir un ennemi au hasard 
-#    creer un adversaire nouveau avec les donnee 
-    
-
-#afficher annonce debut de manche 
-#    afficher le num de la manche 
-#    presenter l'adeversaire 
-
-#afficher les attaques 
-#    afficher qui frappe 
 
