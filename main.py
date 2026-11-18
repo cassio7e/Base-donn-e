@@ -2,11 +2,10 @@
 def choix_valide(): 
     if choix is not choix.isdigit()
         return False
-#   afficher les options numerote
-#   si le choix n'est pas isdidgit()       
+#   si le choix n'est pas composé uniquement de chiffre      
 #       return false                        
 #   convertir le choix en entier 
-#  return True 
+#  return True si le choix est entre min et max inclus 
 
 # debut du jeux (principal)
 def debut_jeux():

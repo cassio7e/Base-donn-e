@@ -1,8 +1,9 @@
 # reinitialiser la base (donc remte l'arene dans l'état de base)
 def reinitialiser_base():
-#   définir les liste de personnages et monstres
-#   connexion a la base et suppression des anciennes collections
-#   insertion des nouvelles données 
+#   se connecter a la base 
+#   supprimer les collections heros, ennemis et score
+#   définir les liste de heros et ennemis dans leur propre collection du meme nom 
+#   fermer la connexion  
 
 
 

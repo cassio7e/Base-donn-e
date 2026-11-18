@@ -1,22 +1,27 @@
-# charger les personnages (renvoyer la liste des perso dispo)
-def charger_personnages():
+# charger les heros 
+def charger_heros():
+#   se brancher a la base 
 #   récuperer tous les documents dans la collection heros 
 #   les mettre dans une liste
 #   retourner la liste 
 # 
-# charger les monstres (renvoyer la liste de monstres dispo)
-def charger_monstres():
+# charger les ennemis 
+def charger_ennemis():
+#   se brancher a la base 
 #   récuperer tous les documents dans la collection heros 
 #   les mettre dans une liste
 #   retourner la liste 
 # 
 # charger le palmares (renvoyer le classement des meilleurs scores)
 def charger_score():
+#   se brancher a la base 
 #   recuperer tous les documents de la collection Scores
 #   trier par nombre de manche decroissante
+#   les mettre en liste
 #   retourner la liste
 # 
 # enregistrer la partie (sauvegarde des resultats)
 def enregistrer_partie():
+#   se brancher a la base 
 #   creer le doc avec le pseudo et le score 
 #   inserer dans la collection Score
