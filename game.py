@@ -5,7 +5,23 @@ def afficher_heros_disponibles(heros_disponibles):
     for i, h in enumerate(heros_disponibles, start=1):
 #       afficher f"{index}. {h['name']} (ATQ {h['attack']}, DEF {h['defense']}, PV {h['hp']})")"
         print(f"{i}. {h['name'], Attaque: {h['attaque']}, Defense:  {h['defense']}, hp:  {h['hp']} }")
-# 
+ 
+# afficher_equipe
+#   parcourir les membres de l'equipe et afficher leurs infos
+
+# afficher l'evenement du match
+
+
+def afficher_evenement(numero, adversaire):
+#   afficher le numero de manche 
+    print(f" Manche 1")
+#   afficher les adversaire
+#       pour adv(adversiare) dans adversaire
+#           print(f"- {adv.name} | ATK: {adv.attack} | DEF: {adv.defense} | HP: {adv.hp}")    
+       
+#afficher le score final 
+    afficher le pseudo et le score 
+
 # demander le pseudo
 def demander_pseudo():
 #   demander et retourner le pseudo
@@ -16,7 +32,7 @@ def demander_pseudo():
 def choix_heros():
 #   pendant que c'est Vrai    
     while True: 
-       #   afficher chaque personnage numéroté 
+#        afficher chaque personnage numéroté 
          afficher_heros_disponibles(heros_disponible)
 #       demander de choisir un numero valide 
         saisie = input("Choisi le numéro d'un héros :")
@@ -51,39 +67,8 @@ def creation_equipe(heros_disponible):
 #    return   
      return equipe 
 
-#     
-# choisir un monstre disponible
-def choisir_monstre(): 
-#   choisir un monstre au hasard
-#   creer un adversaire 
-#    
-#
-# Pour faire attaquer tous les personnages vivants
-def attaque_perso():
-#   evenements vide 
-#    pour chaque joueurs vivant dans le'equipe 
-#       si le joueur est en vie et le monstre est en vie
-#           le joueur attaque le monstre 
-#       si le monstre n'est plus en vie 
-#           on a tuer le monstre 
-#           break
-#       
-#
-# choisir un personnage vivant en cible aléatoire 
-def choisir_cible_vivante():
-#   lister les vivants
-    vivants = [c for c in combattants if c.est_en_vie()]
-#   choisir au hasard
-#   retouner le hero choisi 
-    return random.choice(vivants)
-#
-#
-# attaque du monstre 
-def attaque_monstres():
-#   choisir un personnage vivant 
-#   le monstre attaque 
-#   mettre un message si le perso est mort 
-#
+
+       
 # equipe en vie 
 def equipe_en_vie(combattants): 
 #   parcourrir la liste des combattants
@@ -94,61 +79,48 @@ def equipe_en_vie(combattants):
             return True
 #   sinon retourner False
     return False 
+
+
+# choisir un personnage vivant en cible aléatoire 
+def choisir_cible_vivante():
+#   lister les vivants
+    vivants = [c for c in combattants if c.est_en_vie()]
+#   choisir au hasard
+#   retouner le hero choisi 
+    return random.choice(vivants)
 #
-# afficher l'evenement
-def afficher_evenement():
-#   afficher le message recu
-#   affiche un message de combat
-#
-# afficher tous les messages d'un tour
-def afficher_message():
-#   afficher chaque message
+
+# deroulement manche
+#   tant que les deux equipes ont des vivants 
+#       chaque heros vivant attaque un adversaire vivant
+#           Si le heros est en vie 
+#               heros choisi une cible vivante 
+#               frappe avec un temps de 1
+#       Si tous les adversaires sont mort, la manche est gagné 
+#           chaque adversaire vivant attaque un heros vivant
+#   l'équipe des heros gagne si il en reste un au moins en vie 
+
 # 
-# afficher l'etat de l'equipe
-def etat_equipe():
-#   affichez un texte de presentation 
-#   affichez chaque personnage en vie 
-# 
-# afficher le score final
-def score_final(): 
-#   afficher le pseudo et le nombre de manches a gagnees
-# 
-# combattre le monstre
-def combattre_monstre(): 
-#   tant que le monstre et equipe en vie 
-#       equipe attaque puis monnstre attque 
-#   afficher l'évenement
-#
-# 
-# boucle du jeux 
-def boucle_jeux():
-#   score de base =0
-#   tant que equipe est en vie 
-#       choisir le monstre
-#       afficher texte avec le nom du monstre
-#       combattre le monstre 
-#   si le monstre est mort 
-#       on augmente le score 
-#
+
 #
 # lancer partie COMPLETE
 def lancer_partie():
 #   demande du pseudo
-#   charger les personnages
-#   creer une equipe 
-#   lancer la boucle de jeu
+#   charger les heros
+#   creer l'equipe hero
+#   mettre le score de base a 0
+#   charger les ennemis
+#   tant que l'équipe heros est en vie 
+#       choisir 3 ennemis random
+#       creer instance Adversaire 
+#       afficher la manche 
+#       deroulement de la manche 
+#       si la manche est gagné alors augmenter le score 
+#       afficher le score 
+#       temps de pause av score
 #   enregistrer le score et afficher le resultat 
+#   afficher le score final 
 #
-#
-# lancer le score des meilleurs joueurs
-def lancer_score():
-    print ("Voici le tableau des SCORES")
-#   texte SCORES
-#   Si pas de score alors message vide 
-#   sinon afficher chaque score 
-#
-#
-
 
 
 
