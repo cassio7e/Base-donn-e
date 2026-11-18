@@ -6,7 +6,7 @@ def affiche_perso():
 def pseudo():
 #   demander et retourner le pseudo
 #
-# demander le choix personnage (choisir un personnage sur la liste)
+# demander le choix personnage (choisir un personnage sur la liste)---> ou est ce qeu j'ai mis "les personnage sur la liste" 
 def choix_personnage():
 #   afficher chaque personnage numéroté 
 #   demander de choisir un numero valide 
