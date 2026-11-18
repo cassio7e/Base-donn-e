@@ -1,10 +1,15 @@
-# choix valide 
+# choix valide
+def choix_valide(): 
+    if choix is not choix.isdigit()
+        return False
+    
 #   si le choix n'est pas isdidgit()       
 #       return false                        
 #   convertir le choix en entier 
 #  return True 
 
 # debut du jeux (principal)
+def debut_jeux():
 #     demander choix valide
 #         tant que infini 
 #           afficher options numérotés  

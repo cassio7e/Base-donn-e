@@ -1,10 +1,13 @@
 # afficher les personnages et leurs caracteristiques
+def affiche_perso():
 #   afficher le name, attque, defence, hp
 # 
 # demander le pseudo
+def pseudo():
 #   demander et retourner le pseudo
 #
 # demander le choix personnage (choisir un personnage sur la liste)
+def choix_personnage():
 #   afficher chaque personnage numéroté 
 #   demander de choisir un numero valide 
 #   pendant que c'est Vrai
@@ -13,6 +16,7 @@
 #   
 #
 # creation de l'equipe (personnage_disponibles)
+def creation_equipe():
 #   initialiser une equipe vide
 #   copier la liste des personnages disponibles
 #   repeter jusqu'a avoir 3 personnages
@@ -20,12 +24,14 @@
 #       creer Joueur et ajouter le perso
 #        
 #     
-# choisir un monstre disponible 
+# choisir un monstre disponible
+def choisir_monstre(): 
 #   choisir un monstre au hasard
 #   creer un adversaire 
 #    
 #
 # Pour faire attaquer tous les personnages vivants
+def attaque_perso():
 #   evenements vide 
 #    pour chaque joueurs vivant dans le'equipe 
 #       si le joueur est en vie et le monstre est en vie
@@ -36,40 +42,49 @@
 #       
 #
 # choisir un personnage vivant en cible aléatoire 
+def cible_personnage():
 #    lister les vivants
 #    choisir au hasard 
 #
 #
 # attaque du monstre 
+def attaque_monstres():
 #   choisir un personnage vivant 
 #   le monstre attaque 
 #   mettre un message si le perso est mort 
 #
-# equipe morte 
+# equipe morte
+def equipe_morte(): 
 #   verifier si au moins un des Personnage vivant est vivant 
 #   renvoie true si morte (l'equipe)
 #
 # afficher l'evenement
+def afficher_evenement():
 #   afficher le message recu
 #   affiche un message de combat
 #
 # afficher tous les messages d'un tour
+def afficher_message():
 #   afficher chaque message
 # 
 # afficher l'etat de l'equipe
+def etat_equipe():
 #   affichez un texte de presentation 
 #   affichez chaque personnage en vie 
 # 
-# afficher le score final 
+# afficher le score final
+def score_final(): 
 #   afficher le pseudo et le nombre de manches a gagnees
 # 
-# combattre le monstre 
+# combattre le monstre
+def combattre_monstre(): 
 #   tant que le monstre et equipe en vie 
 #       equipe attaque puis monnstre attque 
 #   afficher l'évenement
 #
 # 
 # boucle du jeux 
+def boucle_jeux():
 #   score de base =0
 #   tant que equipe est en vie 
 #       choisir le monstre
@@ -80,6 +95,7 @@
 #
 #
 # lancer partie COMPLETE
+def lancer_partie():
 #   demande du pseudo
 #   charger les personnages
 #   creer une equipe 
@@ -88,6 +104,7 @@
 #
 #
 # lancer le score des meilleurs joueurs
+def lancer_score():
 #   texte SCORES
 #   Si pas de score alors message vide 
 #   sinon afficher chaque score 
