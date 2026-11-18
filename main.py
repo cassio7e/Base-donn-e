@@ -2,8 +2,7 @@
 #   si le choix n'est pas isdidgit()       
 #       return false                        
 #   convertir le choix en entier 
-#   verifier que le choix est comprise entre les option min et max  
-#   dire si l'option dans le menu existe  
+#  return True 
 
 # debut du jeux (principal)
 #     demander choix valide

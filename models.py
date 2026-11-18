@@ -10,7 +10,7 @@
 #   il perd des pv
 #       calculer les degats apres defense
 #       soustraire les degats 
-#   si le pv est negatif alors le mettre a 0
+#       si le pv est negatif alors le mettre a 0
 # 
 #   frapper 
 #       appeler perdre des pv de la cible avec son attaque 
