@@ -18,11 +18,11 @@ def choix_personnage():
 # creation de l'equipe (personnage_disponibles)
 def creation_equipe():
 #   initialiser une equipe vide
-#   copier la liste des personnages disponibles
-#   repeter jusqu'a avoir 3 personnages
-#       demander le choix personnage
+#    repeter tant que avoir 1 a lend personnages
+#       determiner la liste des personnages disponibles 
+#       demander le choix valide personnage
 #       creer Joueur et ajouter le perso
-#        
+#    return
 #     
 # choisir un monstre disponible
 def choisir_monstre(): 
@@ -55,6 +55,7 @@ def attaque_monstres():
 #
 # equipe morte
 def equipe_morte(): 
+    
 #   verifier si au moins un des Personnage vivant est vivant 
 #   renvoie true si morte (l'equipe)
 #
@@ -105,6 +106,7 @@ def lancer_partie():
 #
 # lancer le score des meilleurs joueurs
 def lancer_score():
+    print ("Voici le tableau des SCORES")
 #   texte SCORES
 #   Si pas de score alors message vide 
 #   sinon afficher chaque score 
