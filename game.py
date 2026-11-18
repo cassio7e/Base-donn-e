@@ -1,28 +1,56 @@
-# afficher les personnages et leurs caracteristiques
-def affiche_perso():
-#   afficher le name, attque, defence, hp
+
+#  afficher les personnages et leurs caracteristiques
+def afficher_heros_disponibles(heros_disponibles):
+#   parcourir une liste tout en gardant un numéro automatique pour chaque élément.
+    for i, h in enumerate(heros_disponibles, start=1):
+#       afficher f"{index}. {h['name']} (ATQ {h['attack']}, DEF {h['defense']}, PV {h['hp']})")"
+        print(f"{i}. {h['name'], Attaque: {h['attaque']}, Defense:  {h['defense']}, hp:  {h['hp']} }")
 # 
 # demander le pseudo
-def pseudo():
+def demander_pseudo():
 #   demander et retourner le pseudo
+    pseudo = input("Entre ton pseudo :")
+    return pseudo 
 #
-# demander le choix personnage (choisir un personnage sur la liste)---> ou est ce qeu j'ai mis "les personnage sur la liste" 
-def choix_personnage():
-#   afficher chaque personnage numéroté 
-#   demander de choisir un numero valide 
-#   pendant que c'est Vrai
-#       retourner le choix dans l'index choisi
-#   si pas is digit 
+# demander le choix heros(choisir un personnage sur la liste)---> ou est ce qeu j'ai mis "les personnage sur la liste" 
+def choix_heros():
+#   pendant que c'est Vrai    
+    while True: 
+       #   afficher chaque personnage numéroté 
+         afficher_heros_disponibles(heros_disponible)
+#       demander de choisir un numero valide 
+        saisie = input("Choisi le numéro d'un héros :")
+#       si le choix est invalide ou déjà pris, afficher une erreur et recommencer
+        if utils.est choix_valide(saisie, 1, len(heros_disponibles)):
+#           retourner le choix dans l'index choisi
+            index = int(saisie) - 1
+            hero = heros_disponibles[index]
+            # si pas deja pris  retourner a l'index 
+            if not deja_pris: 
+                return index 
+            else : 
+                print("Ce heros est deja dans l'equipe")
+        else:
+        print("Choix invalide")
+
+        
 #   
 #
 # creation de l'equipe (personnage_disponibles)
-def creation_equipe():
+def creation_equipe(heros_disponible):
 #   initialiser une equipe vide
-#    repeter tant que avoir 1 a lend personnages
-#       determiner la liste des personnages disponibles 
-#       demander le choix valide personnage
-#       creer Joueur et ajouter le perso
-#    return
+    equipe = []
+#    repeter tant que avoir 1 a lend personnages (3)
+    while len(equipe) < 3:
+#       choisir un heros VALIDE
+        index = choix_heros(heros_disponible, equipe)
+        hero_data = heros_disponible[index]
+#       creer l'instance Joeur et la mettre dans equipe
+        nouveau_joueur = Joueur(hero_data['name'], hero_data['hp'], hero_data['attaque'], hero_data['defense'])
+        equipe.append(nouveau_joueur)
+#    return   
+     return equipe 
+
 #     
 # choisir un monstre disponible
 def choisir_monstre(): 
@@ -42,9 +70,12 @@ def attaque_perso():
 #       
 #
 # choisir un personnage vivant en cible aléatoire 
-def cible_personnage():
-#    lister les vivants
-#    choisir au hasard 
+def choisir_cible_vivante():
+#   lister les vivants
+    vivants = [c for c in combattants if c.est_en_vie()]
+#   choisir au hasard
+#   retouner le hero choisi 
+    return random.choice(vivants)
 #
 #
 # attaque du monstre 
@@ -53,11 +84,16 @@ def attaque_monstres():
 #   le monstre attaque 
 #   mettre un message si le perso est mort 
 #
-# equipe morte
-def equipe_morte(): 
-    
-#   verifier si au moins un des Personnage vivant est vivant 
-#   renvoie true si morte (l'equipe)
+# equipe en vie 
+def equipe_en_vie(combattants): 
+#   parcourrir la liste des combattants
+    for c in combattants:     
+#       verifier si au moins un des heros est vivant
+        if c.est_en_vie():
+#           retourne true 
+            return True
+#   sinon retourner False
+    return False 
 #
 # afficher l'evenement
 def afficher_evenement():

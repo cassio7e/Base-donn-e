@@ -1,7 +1,7 @@
 # reinitialiser la base (donc remte l'arene dans l'état de base)
 def reinitialiser_base():
-#   définir les liste de personnages et montres
-#   connexion a la base et suppression des anciennes colections
+#   définir les liste de personnages et monstres
+#   connexion a la base et suppression des anciennes collections
 #   insertion des nouvelles données 
 
 
@@ -13,7 +13,7 @@ HERO = [
     {"name": "Michelangelo", "attaque": 12, "defense": 20, "hp": 120},
 ]
 
-ENNEMIE = [
+ENNEMIS = [
     {"name": "Shredder", "attaque": 11, "defense": 21, "hp": 120},
     {"name": "Krang", "attaque": 13, "defense": 13, "hp": 120},
     {"name": "Bebop", "attaque": 15, "defense": 10, "hp": 120},
