@@ -79,7 +79,7 @@
 #       on augmente le score 
 #
 #
-# deroulement partie COMPLETE
+# lancer partie COMPLETE
 #   demande du pseudo
 #   charger les personnages
 #   creer une equipe 
@@ -87,7 +87,7 @@
 #   enregistrer le score et afficher le resultat 
 #
 #
-# afficher le score des meilleurs joueurs
+# lancer le score des meilleurs joueurs
 #   texte SCORES
 #   Si pas de score alors message vide 
 #   sinon afficher chaque score 
