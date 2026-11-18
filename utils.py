@@ -25,3 +25,14 @@ def enregistrer_partie():
 #   se brancher a la base 
 #   creer le doc avec le pseudo et le score 
 #   inserer dans la collection Score
+
+# choix valide
+def choix_valide(choix): 
+#   si le choix n'est pas composé uniquement de chiffre          
+    if not choix.isdigit():
+#       return false        
+        return False                      
+#   convertir le choix en entier
+    nombre = int(choix)
+#  return True si le choix est entre min et max inclus
+    return min <= nombre <= max

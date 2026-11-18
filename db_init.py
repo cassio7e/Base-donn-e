@@ -1,6 +1,7 @@
 # reinitialiser la base (donc remte l'arene dans l'état de base)
 def reinitialiser_base():
 #   se connecter a la base 
+
 #   supprimer les collections heros, ennemis et score
 #   définir les liste de heros et ennemis dans leur propre collection du meme nom 
 #   fermer la connexion  

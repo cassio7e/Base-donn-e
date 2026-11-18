@@ -1,23 +1,33 @@
-# choix valide
-def choix_valide(): 
-    if choix is not choix.isdigit()
-        return False
-#   si le choix n'est pas composé uniquement de chiffre      
-#       return false                        
-#   convertir le choix en entier 
-#  return True si le choix est entre min et max inclus 
+from utils import choix_valide
 
 # debut du jeux (principal)
 def debut_jeux():
 #     demander choix valide
-#         tant que infini  
-#           demander le choix du user
-#           Si choix valide 
-#              retourne le choix valide en entier
-#              afficher message erreur 
+        while True:
+#         tant que infini
+            while True:
+
+#               parcourir une liste tout en gardant un numéro automatique pour chaque élément.
+                for index, option in enumerate(option, start=1):
+                    print(f"{index}. {option}")
+#               demander le choix du user
+                choix = input("Votre choix :")
+#               Si choix valide 
+                if choix_valide(choix):
+#               retourne le choix valide en entier
+                    return choix_valide
+                    break 
+#              afficher message erreur
+                print("Choix invalide, réessaye")
 #     SI 1 alors lancer le jeux
-#     sinon 2 alors le afficher les score 
+        if choix_valide(choix) == 1:
+            lancer_partie()
+#     sinon 2 alors le afficher les score
+        elif choix_valide(choix) == 2:
+             lancer_score(score)
 #     ou 3 quitter 
+        elif  choix_valide(choix) == 3:
+             return 
 
 
 
