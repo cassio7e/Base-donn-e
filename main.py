@@ -1,4 +1,5 @@
 from utils import *
+from game import lancer_partie, afficher_score_final
 
 
 # debut du jeux (principal)
@@ -12,7 +13,7 @@ def debut_jeux():
                lancer_partie()
 #     sinon 2 alors le afficher les scores
         elif choix == 2:
-             lancer_score(score)
+             afficher_score_final()
 #     ou 3 quitter 
         elif  choix == 3:
              return 

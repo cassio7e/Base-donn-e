@@ -3,6 +3,7 @@ import time
 from models import Combattants, Joueur, Adversaire 
 from utils import * 
 from db_init import ENNEMIS
+import utils
 
 
 #display nombre option 
@@ -71,7 +72,6 @@ def demander_pseudo():
 def creation_equipe(heros_disponibles):
 #   initialiser une equipe vide
     equipe = []
-
 #   Bien former les infos brutes
     phrases_heros = formater_hero(heros_disponibles)
 #    repeter tant que avoir 1 a lend personnages (3)    
