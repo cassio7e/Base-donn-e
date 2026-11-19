@@ -1,10 +1,13 @@
 from pymongo import MongoClient 
-
+import shutil 
+from game import afficher_titre_encadre
 
 URL_MONGO = "mongodb://localhost:27017/"
 NOM_BASE = "arene_rpg"
 
-#display nombre options 
+
+
+# display nombre options 
 def afficher_nombre_disponibles(options, start=1):
 #   parcourir une liste tout en gardant un numéro automatique pour chaque élément.
     for i, o in enumerate(options, start=start):
@@ -85,7 +88,7 @@ def recuperer_choix_valide(options):
 #           return choix en entier 
             return  int(choix)
 #       afficher erreur
-        print("Erreur")
+        afficher_titre_encadre("Erreur")
 
 
 #afficher les 3 premiers scores
@@ -95,7 +98,7 @@ def afficher_scores():
 #   si aucun il n'y a pas de score 
     if not scores:
 #       afficher un message comme quoi il n'y a rien d'enregistrer
-        print("Aucun score enregistré actuellement")
+        afficher_titre_encadre("Aucun score enregistré actuellement")
 #       return 
         return
 #   afficher un titre    

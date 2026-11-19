@@ -5,6 +5,12 @@ from utils import *
 from db_init import ENNEMIS
 import utils
 
+# afficher le titre
+def afficher_titre_encadre(texte):
+#   creer une ligne de separation
+    largeur = shutil.get_terminal_size().columns
+#   afficher ligne, texte... 
+    print(texte.center(largeur))
 
 
 #formater_hero(hero_disponible)
@@ -32,9 +38,9 @@ def afficher_equipe(equipe):
 # afficher l'evenement du match
 def afficher_evenement(numero, adversaires):
 #   afficher le numero de manche 
-    print(f" Manche {numero}")
+    afficher_titre_encadre(f" Manche {numero}")
 #   afficher les adversaires
-    print ("Adversaires :")
+    afficher_titre_encadre ("Adversaires :")
 #   pour adv(adversiare) dans adversaire
     for adv in adversaires:
 #       print(f"- {adv.name},  ATK: {adv.attack},  DEF: {adv.defense},  HP: {adv.hp}")    
@@ -45,21 +51,22 @@ def afficher_evenement(numero, adversaires):
 def afficher_resultat_manche(gagnee):
 #   si gagner alors afficher un mess de victoire
     if gagnee: 
-        print("Manche gagné ")
+        print("-----Manche gagné----- ")
 #   sinon message de defaite
     else: 
-        print("Manche perdu ")
+        print("------Manche perdu------")
+
 
 #afficher le score final 
-def afficher_score_final(pseudo, score):
+def afficher_score_final(score):
 #   afficher mess final avec le pseudo et le score
-    print(f" La Partie est terminée. Vous avez gagné {score} manche")
+    print(f"-----La Partie est terminée. Vous avez gagné {score} manche-----")
 
 
 # demander le pseudo
 def demander_pseudo():
 #   demander et retourner le pseudo
-    pseudo = input("Entre ton pseudo :")
+    pseudo = input("-----Entre ton pseudo :-----")
     return pseudo 
 
 
@@ -98,7 +105,6 @@ def equipe_en_vie(combattants):
 def choisir_cible_vivante(cibles):
 #   lister les vivants
     vivants = [c for c in cibles if c.est_en_vie()]
-#   
 #   retouner le hero choisi au hasard 
     return random.choice(vivants)
 #
@@ -171,8 +177,6 @@ def lancer_partie():
             score += 1
 #       afficher le score
         afficher_resultat_manche(gagnee)
-#       temps de pause av score
-        time.sleep(1)
 #   enregistrer le score et afficher le resultat
     utils.enregistrer_partie(pseudo, score) 
 #   afficher le score final 
