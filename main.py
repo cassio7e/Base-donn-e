@@ -18,7 +18,7 @@ def debut_jeux():
         elif  choix == 3:
              return 
 
-
+debut_jeux()
 
 
 

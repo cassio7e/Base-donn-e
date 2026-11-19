@@ -12,22 +12,22 @@ class Combattants:
 #   est en vie le self 
     def est_en_vie(self):
 #       renvoie true si pv du combattant sont positive (strictement)
-        return self.pv > 0
+        return self.hp > 0
     
 #   il perd des pv
-    def perd_vie(self, quantite):
+    def perd_pv(self, quantite):
 #       réduire les points de vie de la quantité de degat reçue
         self.hp -= quantite
-#       si le pv est negatif alors le mettre a 0
-        if self.hp < 0:
-            self.hp =0
+#       soustraire au hp sans descendre sous 0
+        degats = max(1, quantite - (self.defense //2))
+        self.hp = max(0, self.hp - degats)
 
 #   frapper 
     def frapper(self, cible):
 #       cacule des degats avec des resulats entier
         degats = max(1, self.attaque - (cible.defense //2))
 #       la cible prend des degats
-        cible.perdre_pv(degats)
+        cible.perd_pv(degats)
 #       retourner le resultat des dégats infligés a la cible 
         return degats 
     

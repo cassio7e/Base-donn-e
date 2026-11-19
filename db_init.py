@@ -48,3 +48,5 @@ def reinitialiser_base():
     db.ennemis.insert_many(ENNEMIS)
 #   fermer la connexion  
     client.close()
+
+preparer_base()
