@@ -33,12 +33,12 @@ def afficher_equipe(equipe):
 def afficher_evenement(numero, adversaires):
 #   afficher le numero de manche 
     print(f" Manche {numero}")
-#   afficher les adversaire
+#   afficher les adversaires
     print ("Adversaires :")
 #   pour adv(adversiare) dans adversaire
     for adv in adversaires:
-#       print(f"- {adv.name} | ATK: {adv.attack} | DEF: {adv.defense} | HP: {adv.hp}")    
-        print(f"- {adv.name} | ATK: {adv.attaque} | DEF: {adv.defense} | HP: {adv.hp}")    
+#       print(f"- {adv.name},  ATK: {adv.attack},  DEF: {adv.defense},  HP: {adv.hp}")    
+        print(f"- {adv.name},  ATK: {adv.attaque},  DEF: {adv.defense},  HP: {adv.hp}")    
 
        
 #afficher le score de la manche
@@ -55,13 +55,14 @@ def afficher_score_final(pseudo, score):
 #   afficher mess final avec le pseudo et le score
     print(f" La Partie est terminée. Vous avez gagné {score} manche")
 
+
 # demander le pseudo
 def demander_pseudo():
 #   demander et retourner le pseudo
     pseudo = input("Entre ton pseudo :")
     return pseudo 
-#
-#
+
+
 # creation de l'equipe (personnage_disponibles)
 def creation_equipe(heros_disponibles):
 #   initialiser une equipe vide
@@ -76,7 +77,7 @@ def creation_equipe(heros_disponibles):
 #       creer l'instance Joueur et la mettre dans equipe
         nouveau_joueur = Joueur(hero_data['name'], hero_data['hp'], hero_data['attaque'], hero_data['defense'])
         equipe.append(nouveau_joueur)
-#    return   
+#   return l'equipe 
     return equipe 
 
 
@@ -97,9 +98,8 @@ def equipe_en_vie(combattants):
 def choisir_cible_vivante(cibles):
 #   lister les vivants
     vivants = [c for c in cibles if c.est_en_vie()]
-#   choisir au hasard
-
-#   retouner le hero choisi 
+#   
+#   retouner le hero choisi au hasard 
     return random.choice(vivants)
 #
 
@@ -107,27 +107,31 @@ def choisir_cible_vivante(cibles):
 def deroulement_manche(equipe, adversaires):
 #   tant que les deux equipes ont des vivants
     while equipe_en_vie(equipe) and equipe_en_vie(adversaires):
-        print("gate 0")
-#       chaque heros vivant attaque un adversaire vivant
-        for hero in equipe:
-#           Si le heros est en vie il devient une cible vivante, on arrète la phase d'attaque 
-            if hero.est_en_vie() and equipe_en_vie(adversaires):
-                cible = choisir_cible_vivante(adversaires)
-#               frappe avec un temps de 1
-                hero.frapper(cible)
-#            Si tous les adversaires sont mort, la manche est gagné
-            if not equipe_en_vie(adversaires):
-#               return vrai (mache gagnée)
-                return True 
-#               chaque adversaire vivant attaque un heros vivant
-            for adv in adversaires:
-                if adv.est_en_vie() and equipe_en_vie(equipe):
-                    cible = choisir_cible_vivante(equipe)
-                    adv.frapper(cible)
-#   Verifier que tous les geros sont morts 
-    if not equipe_en_vie(equipe):
-#       retourne que la manche est perdu 
-        return False 
+#       les heros attaquent
+        phase_attaque(equipe, adversaires)
+#       si tous les adversaires sont mort  
+        if not equipe_en_vie(adversaires):
+            return True      
+#       les adversaires ripostent 
+        phase_attaque(equipe, adversaires)
+#       si equipe est mort, retourner False 
+        if not equipe_en_vie(equipe):
+            return False 
+    return equipe_en_vie(equipe)
+
+
+# phase_attaque
+def phase_attaque(attaquants, defenseurs):
+#   pour chaque combattant dans attaquants
+    for attaquant in attaquants: 
+#   si le combattant est vivant et qu'il reste au moins un defenseur vivant
+        if attaquant.est_en_vie() and equipe_en_vie(defenseurs):
+#   choisir une cible vivante parmi les defenseurs
+            cible = choisir_cible_vivante(defenseurs)
+#   le combattant attaque la cible 
+            attaquant.frapper(cible)
+
+
 
 # choisir random ennemis
 def choisir_random_ennemis(ennemis_disponible):

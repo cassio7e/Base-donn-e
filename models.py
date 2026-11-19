@@ -1,9 +1,9 @@
 # class pour les combattants
 class Combattants: 
-#   _init_
 
+#   _init_
     def __init__(self, name, hp, attaque, defense ):
-#       initailisation 'un combattant avec nom et info
+#       initailisation d'un combattant avec nom et info
         self.name = name
         self.hp = hp
         self.attaque = attaque
@@ -24,7 +24,7 @@ class Combattants:
 
 #   frapper 
     def frapper(self, cible):
-#       cacule des degats avec des resulats entier
+#       cacule des degats avec des resulats entiers
         degats = max(1, self.attaque - (cible.defense //2))
 #       la cible prend des degats
         cible.perd_pv(degats)

@@ -4,14 +4,14 @@ from pymongo import MongoClient
 URL_MONGO = "mongodb://localhost:27017/"
 NOM_BASE = "arene_rpg"
 
-#display nombre option 
+#display nombre options 
 def afficher_nombre_disponibles(options, start=1):
 #   parcourir une liste tout en gardant un numéro automatique pour chaque élément.
     for i, o in enumerate(options, start=start):
 #      afficher (f"{index} = {o}) 
         print(f"{i} : {o}")
 
-
+#   fonction pour se brancher a la base 
 def obtenir_connexion():
     client = MongoClient("mongodb://localhost:27017/")
     db = client[NOM_BASE]
@@ -31,8 +31,7 @@ def charger_heros():
 def charger_ennemis():
 #   se brancher a la base 
     db = obtenir_connexion()
-#   récuperer tous les documents dans la collection heros 
-#   les mettre dans une liste
+#   récuperer tous les documents dans la collection heros et les mettre dans une liste
     ennemis =list(db.ennemis.find())
 #   retourner la liste 
     return ennemis
@@ -88,18 +87,19 @@ def recuperer_choix_valide(options):
 #       afficher erreur
         print("Erreur")
 
+
 #afficher les 3 premiers scores
 def afficher_scores():
 #   charger les scores depuis la base 
     scores = charger_score()
 #   si aucun il n'y a pas de score 
     if not scores:
-#       afficher un mess comme quoi pas enregistrer
+#       afficher un message comme quoi il n'y a rien d'enregistrer
         print("Aucun score enregistré actuellement")
 #       return 
         return
- #  afficher un titre    
-    print("SCORES")
+#   afficher un titre    
+    print("----------SCORES----------")
 #   trier les scores par nombre de manches decroissante
     scores_tries = sorted(scores, key=lambda x:x['manches'], reverse=True)
 #   afficher les 3 meilleurs scores 
