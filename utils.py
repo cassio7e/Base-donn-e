@@ -45,7 +45,7 @@ def charger_score():
 #   recuperer tous les documents de la collection Scores
  #   trier par nombre de manche decroissante
 #       les mettre en liste
-    score = list(db.score.find().sort("manches", -1))
+    score = list(db.score.find({}, {"_id": 0}))
 #        retourner la liste
     return score
 
@@ -58,7 +58,7 @@ def enregistrer_partie(joueur, manches):
     document = {"joueur": joueur, "manches": manches}
 #   inserer dans la collection Score
     db.palmares.insert_one(document)
-
+    
 
 # choix valide
 def choix_valide(choix, min , max): 
@@ -72,8 +72,9 @@ def choix_valide(choix, min , max):
     return min <= nombre <= max
 
 
+
 #recuperer choix valide 
-def recuperer_choix_valide(options):
+def recuperer_choix_valide(options, choix):
 #   tant que vrai 
     while True:
 #       afficher les options
@@ -86,3 +87,23 @@ def recuperer_choix_valide(options):
             return  int(choix)
 #       afficher erreur
         print("Erreur")
+
+#afficher les 3 premiers scores
+def afficher_scores():
+#   charger les scores depuis la base 
+    scores = charger_score()
+#   si aucun il n'y a pas de score 
+    if not scores:
+#       afficher un mess comme quoi pas enregistrer
+        print("Aucun score enregistré actuellement")
+#       return 
+        return
+ #  afficher un titre    
+    print("SCORES")
+#   trier les scores par nombre de manches decroissante
+    scores_tries = sorted(scores, key=lambda x:x['manches'], reverse=True)
+#   afficher les 3 meilleurs scores 
+    for rang, doc in enumerate(scores_tries[:3], strat=1):
+        print(f"{rang}. {doc['joueur']} - {doc['manches']} manches")
+#        un message pour dire que le joueur appuie sur Entrée pour revenir au menu
+        input("Si tu veux revenir au menu appuis sur Entrée")

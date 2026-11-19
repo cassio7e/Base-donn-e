@@ -72,7 +72,7 @@ def creation_equipe(heros_disponibles):
     while len(equipe) < 3:
 #       choisir un heros VALIDE
         index = recuperer_choix_valide(phrases_heros)
-        hero_data = heros_disponibles[index]
+        hero_data = heros_disponibles[index - 1]
 #       creer l'instance Joueur et la mettre dans equipe
         nouveau_joueur = Joueur(hero_data['name'], hero_data['hp'], hero_data['attaque'], hero_data['defense'])
         equipe.append(nouveau_joueur)
@@ -108,32 +108,38 @@ def deroulement_manche(equipe, adversaires):
     while equipe_en_vie(equipe) and equipe_en_vie(adversaires):
 #       chaque heros vivant attaque un adversaire vivant
         for hero in equipe:
-#           Si le heros est en vie il devient une cible vivante 
-            cible = choisir_cible_vivante(adversaires)
+#           Si le heros est en vie il devient une cible vivante, on arrète la phase d'attaque 
+            if hero.est_en_vie():
+                cible = choisir_cible_vivante(adversaires)
 #               frappe avec un temps de 1
-            hero.frapper(cible)
-            time.sleep(1)
-#       Si tous les adversaires sont mort, la manche est gagné
-        if not equipe_en_vie(adversaires):
-            break
-#           chaque adversaire vivant attaque un heros vivant
-        for adv in adversaires:
-            if adv.est_en_vie():
-                cible = choisir_cible_vivante(equipe)
-                adv.frapper(cible)
+                hero.frapper(cible)
                 time.sleep(1)
-#   l'équipe des heros gagne si il en reste un au moins en vie 
-    return equipe_en_vie(equipe)
+#            Si tous les adversaires sont mort, la manche est gagné
+            if not equipe_en_vie(adversaires):
+#               return vrai (mache gagnée)
+                return True 
+#               chaque adversaire vivant attaque un heros vivant
+            for adv in adversaires:
+                if adv.est_en_vie():
+                    cible = choisir_cible_vivante(equipe)
+                    adv.frapper(cible)
+                    time.sleep(1)
+#   Verifier que tous les geros sont morts 
+    if not equipe_en_vie(equipe):
+#       retourne que la manche est perdu 
+        return False 
 
 # choisir random ennemis
 def choisir_random_ennemis(ennemis_disponible):
 #   choisir random ennemis
+    ennemis_disponible_copy = ennemis_disponible.copy()
     adversaires = []
     for _ in range(3):
 #       choisir un heros VALIDE
-        adv_data = random.choice(ennemis_disponible)
+        adv_data = random.choice(ennemis_disponible_copy)
 #       creer instance Adversaire 
         adversaires.append(Adversaire(adv_data['name'], adv_data['attaque'],adv_data['defense'],adv_data['hp']))
+        ennemis_disponible_copy.pop()
     return adversaires
 #
 # lancer partie COMPLETE
