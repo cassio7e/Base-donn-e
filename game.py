@@ -4,6 +4,10 @@ from models import Combattants, Joueur, Adversaire
 from utils import * 
 from db_init import ENNEMIS
 import utils
+import shutil
+
+
+
 
 def afficher_titre_encadre(texte):
     largeur = shutil.get_terminal_size().columns
@@ -21,8 +25,6 @@ def formater_hero(heros_disponibles):
 def afficher_equipe(equipe):
     for c in equipe:
         print(f"{c.name}, Attaque: {c.attaque}, Defense: {c.defense}, Hp: {c.hp}")
-
-
 
 
 def afficher_evenement(numero, adversaires):

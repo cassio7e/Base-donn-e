@@ -1,5 +1,4 @@
 from pymongo import MongoClient 
-import shutil 
 from game import afficher_titre_encadre
 
 URL_MONGO = "mongodb://localhost:27017/"
