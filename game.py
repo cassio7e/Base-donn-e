@@ -98,6 +98,7 @@ def choisir_cible_vivante(cibles):
 #   lister les vivants
     vivants = [c for c in cibles if c.est_en_vie()]
 #   choisir au hasard
+
 #   retouner le hero choisi 
     return random.choice(vivants)
 #
@@ -106,24 +107,23 @@ def choisir_cible_vivante(cibles):
 def deroulement_manche(equipe, adversaires):
 #   tant que les deux equipes ont des vivants
     while equipe_en_vie(equipe) and equipe_en_vie(adversaires):
+        print("gate 0")
 #       chaque heros vivant attaque un adversaire vivant
         for hero in equipe:
 #           Si le heros est en vie il devient une cible vivante, on arrète la phase d'attaque 
-            if hero.est_en_vie():
+            if hero.est_en_vie() and equipe_en_vie(adversaires):
                 cible = choisir_cible_vivante(adversaires)
 #               frappe avec un temps de 1
                 hero.frapper(cible)
-                time.sleep(1)
 #            Si tous les adversaires sont mort, la manche est gagné
             if not equipe_en_vie(adversaires):
 #               return vrai (mache gagnée)
                 return True 
 #               chaque adversaire vivant attaque un heros vivant
             for adv in adversaires:
-                if adv.est_en_vie():
+                if adv.est_en_vie() and equipe_en_vie(equipe):
                     cible = choisir_cible_vivante(equipe)
                     adv.frapper(cible)
-                    time.sleep(1)
 #   Verifier que tous les geros sont morts 
     if not equipe_en_vie(equipe):
 #       retourne que la manche est perdu 
@@ -139,7 +139,7 @@ def choisir_random_ennemis(ennemis_disponible):
         adv_data = random.choice(ennemis_disponible_copy)
 #       creer instance Adversaire 
         adversaires.append(Adversaire(adv_data['name'], adv_data['attaque'],adv_data['defense'],adv_data['hp']))
-        ennemis_disponible_copy.pop()
+        ennemis_disponible_copy.remove(adv_data)
     return adversaires
 #
 # lancer partie COMPLETE
@@ -157,7 +157,7 @@ def lancer_partie():
     ennemis_disponible = utils.charger_ennemis()
 #   tant que l'équipe heros est en vie 
     while equipe_en_vie(equipe):
-        adversaires = choisir_random_ennemis(ENNEMIS)     
+        adversaires = choisir_random_ennemis(ennemis_disponible)     
 #       afficher la manche
         afficher_evenement(score + 1, adversaires)
 #       deroulement de la manche

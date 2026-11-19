@@ -45,7 +45,7 @@ def charger_score():
 #   recuperer tous les documents de la collection Scores
  #   trier par nombre de manche decroissante
 #       les mettre en liste
-    score = list(db.score.find({}, {"_id": 0}))
+    score = list(db.scores.find({}, {"_id": 0}))
 #        retourner la liste
     return score
 
@@ -74,7 +74,7 @@ def choix_valide(choix, min , max):
 
 
 #recuperer choix valide 
-def recuperer_choix_valide(options, choix):
+def recuperer_choix_valide(options):
 #   tant que vrai 
     while True:
 #       afficher les options
@@ -103,7 +103,7 @@ def afficher_scores():
 #   trier les scores par nombre de manches decroissante
     scores_tries = sorted(scores, key=lambda x:x['manches'], reverse=True)
 #   afficher les 3 meilleurs scores 
-    for rang, doc in enumerate(scores_tries[:3], strat=1):
+    for rang, doc in enumerate(scores_tries[:3], start=1):
         print(f"{rang}. {doc['joueur']} - {doc['manches']} manches")
 #        un message pour dire que le joueur appuie sur Entrée pour revenir au menu
         input("Si tu veux revenir au menu appuis sur Entrée")

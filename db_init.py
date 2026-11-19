@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 
 HEROS = [
-    {"name": "Leonardo", "attaque": 14, "defense": 10, "hp": 120},
+    {"name": "Leonardo", "attaque": 140, "defense": 10, "hp": 12000000},
     {"name": "Raphael", "attaque": 13, "defense": 13, "hp": 120},
     {"name": "Donatello", "attaque": 20, "defense": 9, "hp": 120},
     {"name": "Michelangelo", "attaque": 12, "defense": 20, "hp": 120},
