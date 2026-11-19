@@ -1,28 +1,37 @@
 import random 
 import time
 from models import Combattants, Joueur, Adversaire 
-import utils 
+from utils import * 
+from db_init import ENNEMIS
 
 
-#  afficher les personnages et leurs caracteristiques
-def afficher_heros_disponibles(heros_disponibles):
+#display nombre option 
+def afficher_nombre_disponibles(options):
 #   parcourir une liste tout en gardant un numéro automatique pour chaque élément.
-    for i, h in enumerate(heros_disponibles, start=1):
-#       afficher f"{index}. {h['name']} (ATQ {h['attack']}, DEF {h['defense']}, PV {h['hp']})")"
-        print(f"{i}. {h['name']}, Attaque: {h['attaque']}, Defense:  {h['defense']}, hp:  {h['hp']} ")
+    for i, o in enumerate(options, start=1):
+#      afficher (f"{index} = {o}) 
+        print(f"{i} : {o}")
+
+#formater_hero(hero_disponible)
+#   fait une liste 
+#    pour chaque hero 
+#        ajouter a la liste une chaine de caractere avec ses info
+#   return liste
+def formater_hero(heros_disponibles):
+    liste = []
+    for heros in heros_disponibles:
+        string = f"{heros.name}, Attaque: {heros.attaque}, Defense: {heros.defense}, Hp: {heros.hp}"
+        liste.happen(string)
+    return liste
 
 
- 
 # afficher_equipe
 def afficher_equipe(equipe):
 #   parcourir les membre de l'equipe et mettre leur infos avec un numero 
     for c in equipe:
         print(f"{c.name}, Attaque: {c.attaque}, Defense: {c.defense}, Hp: {c.hp}")
 
-def afficher_heros_disponibles(heros_disponibles):
-#   parcourir les membres de l'equipe et afficher leurs infos
-    for i, h in enumerate(heros_disponibles, start=1):
-        print(f"{i}. {h['name']} | Attaque: {h['attaque']} | Defence: {h['defense']} | Hp: {h['hp']}")
+
 
 
 # afficher l'evenement du match
@@ -57,41 +66,18 @@ def demander_pseudo():
     pseudo = input("Entre ton pseudo :")
     return pseudo 
 #
-
-
-# demander le choix heros(choisir un personnage sur la liste)---> ou est ce qeu j'ai mis "les personnage sur la liste" 
-def choix_heros(heros_disponibles, equipe):
-#   pendant que c'est Vrai    
-    while True: 
-#       afficher chaque personnage numéroté 
-        afficher_heros_disponibles(heros_disponibles)
-#       demander de choisir un numero valide 
-        saisie = input("Choisi le numéro d'un héros :")
-#       si le choix est invalide ou déjà pris, afficher une erreur et recommencer
-        if utils.est_choix_valide(saisie, 1, len(heros_disponibles)):
-#           retourner le choix dans l'index choisi
-            index = int(saisie) - 1
-            hero = heros_disponibles[index]
-            # si pas deja pris  retourner a l'index 
-            deja_pris = any (c.name == hero ['name'] for c in equipe)
-            if not deja_pris: 
-                return index 
-            else : 
-                print("Ce heros est deja dans l'equipe")
-        else:
-            print("Choix invalide")
-
-        
-#   
 #
 # creation de l'equipe (personnage_disponibles)
 def creation_equipe(heros_disponibles):
 #   initialiser une equipe vide
     equipe = []
-#    repeter tant que avoir 1 a lend personnages (3)
+
+#   Bien former les infos brutes
+    phrases_heros = formater_hero(heros_disponibles)
+#    repeter tant que avoir 1 a lend personnages (3)    
     while len(equipe) < 3:
 #       choisir un heros VALIDE
-        index = choix_heros(heros_disponibles, equipe)
+        index = recuperer_choix_valide(phrases_heros)
         hero_data = heros_disponibles[index]
 #       creer l'instance Joeur et la mettre dans equipe
         nouveau_joueur = Joueur(hero_data['name'], hero_data['hp'], hero_data['attaque'], hero_data['defense'])
@@ -145,8 +131,15 @@ def deroulement_manche(equipe, adversaires):
 #   l'équipe des heros gagne si il en reste un au moins en vie 
     return equipe_en_vie(equipe)
 
-# 
-
+# choisir random ennemis
+def choisir_random_ennemis(ennemis_disponible):
+#   choisir random ennemis
+    adversaires = []
+    for _ in range(3):
+        adv_data = random.choice(ennemis_disponible)
+#       creer instance Adversaire 
+        adversaires.append(Adversaire(adv_data['name'], adv_data['attaque'],adv_data['defense'],adv_data['hp']))
+    return adversaires
 #
 # lancer partie COMPLETE
 def lancer_partie():
@@ -163,16 +156,11 @@ def lancer_partie():
     ennemis_disponible = utils.charger_ennemis()
 #   tant que l'équipe heros est en vie 
     while equipe_en_vie(equipe):
-#       choisir 3 ennemis random
-        adversaires = []
-        for _ in range(3):
-            adv_data = random.choice(ennemis_disponible)
-#           creer instance Adversaire 
-            adversaires.append(Adversaire(adv_data['name'], adv_data['attaque'],adv_data['defense'],adv_data['hp']))
+        adversaires = choisir_random_ennemis(ENNEMIS)     
 #       afficher la manche
         afficher_evenement(score + 1, adversaires)
 #       deroulement de la manche
-        gagnee = deroulement_manche
+        gagnee = deroulement_manche(equipe,adversaires)
 #       si la manche est gagné alors augmenter le score 
         if gagnee:
             score += 1
