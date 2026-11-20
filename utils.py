@@ -1,6 +1,5 @@
 from pymongo import MongoClient 
-from game import afficher_titre_encadre
-
+import shutil
 URL_MONGO = "mongodb://localhost:27017/"
 NOM_BASE = "arene_rpg"
 
@@ -66,3 +65,10 @@ def afficher_scores():
     for rang, doc in enumerate(scores_tries[:3], start=1):
         print(f"{rang}. {doc['joueur']} - {doc['manches']} manches")
         input("Si tu veux revenir au menu appuis sur Entrée")
+
+
+
+def afficher_titre_encadre(texte):
+    largeur = shutil.get_terminal_size().columns
+    print(texte.center(largeur))
+

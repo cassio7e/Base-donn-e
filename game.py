@@ -1,17 +1,12 @@
 import random 
 import time
 from models import Combattants, Joueur, Adversaire 
-from utils import * 
+from utils import *
 from db_init import ENNEMIS
-import utils
 import shutil
-from InquirerPy import inquirer
 
 
 
-def afficher_titre_encadre(texte):
-    largeur = shutil.get_terminal_size().columns
-    print(texte.center(largeur))
 
 
 def formater_hero(heros_disponibles):
@@ -104,11 +99,11 @@ def choisir_random_ennemis(ennemis_disponible):
 
 def lancer_partie():
     pseudo = demander_pseudo()
-    heros_disponibles = utils.charger_heros()
+    heros_disponibles = charger_heros()
     equipe = creation_equipe(heros_disponibles)
     afficher_equipe(equipe)
     score = 0
-    ennemis_disponible = utils.charger_ennemis()
+    ennemis_disponible = charger_ennemis()
     while equipe_en_vie(equipe):
         adversaires = choisir_random_ennemis(ennemis_disponible)     
         afficher_evenement(score + 1, adversaires)
@@ -116,5 +111,5 @@ def lancer_partie():
         if gagnee:
             score += 1
         afficher_resultat_manche(gagnee)
-    utils.enregistrer_partie(pseudo, score) 
+    enregistrer_partie(pseudo, score) 
     afficher_score_final(pseudo, score)
